@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create car</h1>
+    <div class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="main_form" method="post" name="formCreate" id="formCreate">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" id="bastidor" placeholder="Numero de bastidor" type="text" name="bastidor">
+                                <span style="color: red;" id="error_bastidor" class="error"></span>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" id="matricula" placeholder="Matricula" type="text" name="matricula">
+                                <span style="color: red;" id="error_matricula" class="error"></span>
+                            </div>
+                            <!-- Arreglar marca y modelo per a que siga un select-->
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" id="marca" placeholder="Marca" type="text" name="marca">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" id="modelo" placeholder="Modelo" type="text" name="modelo">
+                            </div>
+                            <div class="col-md-12">
+                                <input class="form-control" id="kms" placeholder="Kilometros" type="text" name="kms">
+                            </div>
+                            <!-- combustible y año -->
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <select class="form-control" style="height: 54px;" name="combustible" id="combustible">
+                                    <option value="" disabled selected>Combustible</option>
+                                    <option value="Hibrido">Hibrido</option>
+                                    <option value="Diesel">Diesel</option>
+                                    <option value="Gas">Gas</option>
+                                    <option value="Electrico">Electrico</option>
+                                </select>            
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" >
+                                <input class="form-control datepicker" id="year_car" placeholder="Fecha" type="text" name="fecha">
+                            </div>
+                            <!-- Hcer select de carroceria, categoria, color -->
+                            <div class="col-md-4">
+                                <input style="height: 54px;" class="form-control" id="color" type="color" name="color">
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" id="carroceria" placeholder="Carroceria" type="text" name="carroceria">
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" id="categoria" placeholder="Categoria" type="text" name="categoria">
+                            </div>
+                            <!--  -->
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" id="numero" placeholder="Numero de puertas" type="number" name="numero" min="2" max="5">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" >
+                                <input class="form-control" id="cv" placeholder="CV" type="number" name="cv">
+                            </div>
+                            <div class="col-md-12">
+                                <input class="form-control" id="precio" placeholder="Precio" type="number" name="precio">
+                            </div>
+                            
+                            <div class=" col-md-12">
+                                <input class="send" type="button" name="create" value="Create" onclick="validateAll()">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
