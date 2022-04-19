@@ -23,17 +23,26 @@ switch ($_GET['op']) {
         $res = $dao -> login($_POST['name']);
         echo json_encode($res);
         break;
+    case "logout":
+        $res = $dao -> logout();
+        echo json_encode($res);
+        break;
     case "data_user":
         $apache = apache_request_headers();
         $token = $apache['Token'];
         $res = $dao -> data__user($token);
         echo json_encode($res);
         break;
+    case "controluser":
+        $res = $dao -> controll__user();
+        echo json_encode($res);
+        break;
+    case "activity":
+        $res = $dao -> activity();
+        echo json_encode($res);
+        break;
     case "prueba":
-
         $array = apache_request_headers();
-
         echo json_encode($array);
-
         break;
 }

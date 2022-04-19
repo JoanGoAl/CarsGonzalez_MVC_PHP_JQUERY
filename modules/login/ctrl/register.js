@@ -89,7 +89,7 @@ function register() {
 
                                 }).catch(function() {
                                     console.log('Error login')
-                        })
+                                })
                         }).catch(function() {
                             console.log('Error insert user')
                         })

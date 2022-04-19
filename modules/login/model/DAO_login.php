@@ -2,6 +2,7 @@
 $path = $_SERVER['DOCUMENT_ROOT'] . '/CarsGonzalez_MVC_PHP_JQUERY/';
 
 include_once($path . "model/connect.php");
+@session_start();
 
 class DAOLogin {
 
@@ -122,6 +123,37 @@ class DAOLogin {
         $res = get_object_vars(mysqli_query($conexion, $sql)->fetch_object());
         connect::close($conexion);
 
+        $_SESSION['type'] = $res['type_user'];
+        $_SESSION['user'] = $res['name_user'];
+        $_SESSION['user_time'] = time();
+
         return $res;
+    }
+
+    function controll__user() {
+
+        if (isset ($_SESSION['type']) || ($_SESSION['type'] == 'default')) {
+            return 'user_default';
+        }
+
+        return 'no_logged';
+    }
+
+    function logout() {
+        session_unset();
+        return '_logout';
+    }
+
+    function activity() {
+
+        if (!isset ($_SESSION['user_time'])) {
+            return 'no-logged';  
+        } else {
+            if ((time() - $_SESSION["user_time"] >= 600)) {
+                return 'inactivo';
+            } else {
+                return 'activo';
+            }
+        }
     }
 }

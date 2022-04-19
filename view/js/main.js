@@ -51,14 +51,22 @@ function logout() {
 
     $('#butt-logout').on('click', function() {
 
-        localStorage.removeItem('token');
-        window.location.href = "index.php?modules=controller_home";
+        ajaxPromise("GET", "modules/login/ctrl/controller_login.php?op=logout", "json")
+            .then((res) => {
+                console.log(res);
 
+                if (res == '_logout') {
+                    localStorage.removeItem('token');
+                    window.location.href = "index.php?modules=controller_home";
+                }
+
+            }).catch(function() {
+                console.log('Error ajax logout')
+            })
     });
 
 }
 
 $(document).ready(function() {
     load_menu()
-
 });
