@@ -381,7 +381,7 @@ function load_cars(jsonCars) {
         } else {
             $(positionlike).on('click', function() {
 
-                alert('Tienes que estar registrado para dar like');
+                toastr.warning('Tienes que estar registrado para dar like')
 
             });
         }

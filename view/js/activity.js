@@ -20,7 +20,7 @@ function protecturl() {
                 console.log(res);
 
                 if (res == "no_logged") {
-                    alert("Debes realizar login");
+                    toastr.warning('Debes realizar login')
                     window.location.href = window.location.href;
                 } else {
                     setTimeout(console.log('user_default'), 1000);
@@ -38,7 +38,7 @@ function activity_User() {
             .then((res) => {
 
                 if (res == 'inactivo') {
-                    alert('Se ha cerrado la cuenta por inactividad')
+                    toastr.warning('Se ha cerrado la cuenta por inactividad')
                     autologout()
                 } else if (res == 'no-logged') {
                     console.log('Usuario no legged');

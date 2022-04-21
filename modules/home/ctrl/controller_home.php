@@ -1,5 +1,5 @@
 <?php
-$path = $_SERVER['DOCUMENT_ROOT'] . '/CarsGonzalez_MVC_PHP_JQUERY/';
+$path = $_SERVER['DOCUMENT_ROOT'] . '/CarsGonzalez&Framework/CarsGonzalez_MVC_PHP_JQUERY/';
 
 include_once($path . "modules/home/model/DAO_home.php");
 

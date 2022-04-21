@@ -2,10 +2,10 @@ function delete_car(idcar) {
     if (confirm('¿Estas seguro de que quieres borrar el coche?')) {
         // Save it!
         window.location.href = "index.php?modules=controller_car&op=delete&id=" + idcar;
-        alert("Se ha borrado el coche correctamente");
+        toastr.warning('Se ha borrado el coche correctamente')
     } else {
         // Do nothing!
-        alert("No se ha borrado");
+        toastr.warning('No se ha borrado')
     }
 }
 
