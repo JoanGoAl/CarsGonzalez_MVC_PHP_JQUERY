@@ -42,7 +42,6 @@ switch ($_GET['op']) {
         echo json_encode($res);
         break;
     case 'user_likes':
-
         $apache = apache_request_headers();
         $token = $apache['Token'];
         $res = $dao -> likes_user($token);
