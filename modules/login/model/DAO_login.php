@@ -99,7 +99,7 @@ class DAOLogin {
         return jwt_process::encode($res["name_user"]);
     }
 
-    public static function data__user($token){
+    function data__user($token){
 
         $json = json_decode(jwt_process::decode($token), TRUE);
 
