@@ -21,6 +21,10 @@ class JWT {
         $this->data = $this->base64url_encode($header) . '.' . $this->base64url_encode($payload);
         return $this->data.'.'.$this->JWS($header, $key);
     }
+
+    public static function hola() {
+        return 'holaaa';
+    }
     
     public function decode($token, $key) {
         list($header, $payload, $signature) = explode('.', $token);

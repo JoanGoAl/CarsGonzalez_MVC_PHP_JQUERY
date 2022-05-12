@@ -2,6 +2,8 @@
 $path = $_SERVER['DOCUMENT_ROOT'] . '/CarsGonzalez&Framework/CarsGonzalez_MVC_PHP_JQUERY/';
 
 include_once($path . "model/connect.php");
+include_once($path . 'model/middleware_auth.php');
+
 @session_start();
 
 class DAOLogin {
@@ -94,26 +96,12 @@ class DAOLogin {
         $res = get_object_vars(mysqli_query($conexion, $sql)->fetch_object());
         connect::close($conexion);
 
-        $jwtini = parse_ini_file('../../../model/config.ini', true);
-
-        $header = '{"typ": ' . '"' . $jwtini['Header']['typ'] . '", "alg": ' . '"' . $jwtini['Header']['alg'] . '"}';
-
-        $secret = $jwtini['Secret']['key'];
-        $payload = '{"iat":"'.time().'","exp":"'.time() + (60*60).'","name":"'.$res["name_user"].'"}';
-
-        $JWT = new JWT();
-        $token = $JWT -> encode($header, $payload, $secret);
-
-        return $token; 
+        return jwt_process::encode($res["name_user"]);
     }
 
-    function data__user($token){
+    public static function data__user($token){
 
-        $jwtini = parse_ini_file('../../../model/config.ini', true);
-        $secret = $jwtini['Secret']['key'];
-        $JWT = new JWT();
-        $json = $JWT -> decode($token, $secret);
-        $json = json_decode($json, TRUE);
+        $json = json_decode(jwt_process::decode($token), TRUE);
 
         $conexion = connect::con();
 
